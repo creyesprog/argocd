@@ -1,0 +1,22 @@
+apiVersion: argoproject.io/v1alpha
+kind: Application
+metadata:
+  name: argo-experiment
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/creyesprog/argocd.git
+    targetRevision: HEAD
+    path: dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: experiment
+
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
