@@ -13,6 +13,12 @@ spec:
       name: voting-app-pod
       app: demo-voting-app
 
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+
   template:
     metadata:
       name: voting-app-pod
@@ -23,6 +29,6 @@ spec:
     spec:
       containers:
         - name: voting-app
-          image: kodekloud/examplevotingapp_vote:v1
+          image: kodekloud/examplevotingapp_vote:v2
           ports:
             - containerPort: 80
