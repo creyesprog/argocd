@@ -30,6 +30,6 @@ spec:
     spec:
       containers:
         - name: voting-app
-          image: kodekloud/examplevotingapp_vote:before
+          image: kodekloud/examplevotingapp_vote:V1
           ports:
             - containerPort: 80
